@@ -3,7 +3,7 @@
 [![donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/Sinclair81)
 
 <!-- markdownlint-disable MD033 -->
-<img src="https://raw.githubusercontent.com/Sinclair81/Logo-HomeKit-Bridge/master/Images/Bridge-FS2e.png" align="left" alt="Bridge" height="289" width="400">
+<img src="https://raw.githubusercontent.com/Sinclair81/Logo-HomeKit-Bridge/master/Images/Bridge-FS2e.jpg" align="right" alt="Bridge" height="289" width="400">
 <!-- markdownlint-enable MD033 -->
 
 A HomeKit Bridge for Siemens LOGO!s.
