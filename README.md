@@ -6,8 +6,20 @@
 <img src="https://raw.githubusercontent.com/Sinclair81/Logo-HomeKit-Bridge/master/Images/Bridge-FS2e.jpg" align="right" alt="Bridge" height="289" width="400">
 <!-- markdownlint-enable MD033 -->
 
-A HomeKit Bridge for Siemens LOGO!s.
+A HomeKit Bridge for Siemens LOGO!s.  
 
+__Requires components:__
+
+- ESP32-S2 board  
+- Ethernet interface with WIZnet W5500  
+- SD card adapter  
+
+__Example configuration:__
+
+- [FeatherS2](https://feathers2.io/)
+- [MKR ETH Shield](https://store.arduino.cc/arduino-mkr-eth-shield)  
+- my PCB  
+  
 __Type of Accessory:__
 
 - [Switch](#switch-accessory-configuration)
