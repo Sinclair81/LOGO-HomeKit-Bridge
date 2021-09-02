@@ -23,7 +23,8 @@ __Example configuration:__
   
 __Type of Accessory:__
 
-- [Switch](#switch-accessory-configuration)
+- [Switch](#switch-configuration)
+- [Lightbulb](#lightbulb-configuration)
 
 __Flash:__  
 
@@ -44,16 +45,53 @@ Name                     | Value               | Required | Notes
 `ip`                     | "192.168.1.100"     | yes      | Must be set to the IP of your LOGO! PLC.  
 `items`                  | [...]               | yes      | A array of all accessorys and or sensors from this LOGO! PLC.  
   
-## Item Configuration ##  
+## Main Item Configuration ##  
   
 Name                     | Value               | Required | Option for | Notes  
 ------------------------ | ------------------- | -------- | ---------- | ------------------------  
 `name`                   | (custom)            | yes      | all        | Name of accessory that will appear in homekit app.
 `type`                   | "switch" or ...     | yes      | all        | Type of Accessory or Sensor
-`pushButton`             | 0 or 1              | no       | all        | If e.g. the network input in the LOGO! a hardware button on the LOGO! simulated, default is: 1. 
+`pushButton`             | 0 or 1              | no       | all        | If e.g. the network input in the LOGO! a hardware button on the LOGO! simulated, default is: 1.  
+  
+## Switch Configuration ##  
+  
+Name                     | Value               | Required | Option for | Notes  
+------------------------ | ------------------- | -------- | ---------- | ------------------------  
 `switchGet`              | "Q1"                | yes*     | "switch"   | Switch Get - Qn, Mn or Vn.n  
-`switchSetOn`            | "V2.0"              | yes*     | "switch"   | Switch Set On - Mn or Vn.n  
-`switchSetOff`           | "V3.0"              | yes*     | "switch"   | Switch Set Off - Mn or Vn.n  
+`switchSetOn`            | "V1.0"              | yes*     | "switch"   | Switch Set On - Mn or Vn.n  
+`switchSetOff`           | "V1.1"              | yes*     | "switch"   | Switch Set Off - Mn or Vn.n  
+
+```json
+{
+    "name": "Item-1",
+    "type": "switch",
+    "switchGet": "Q1",
+    "switchSetOn": "V1.0",
+    "switchSetOff": "V1.1"
+}
+```  
+  
+## Lightbulb Configuration ##  
+  
+Name                     | Value               | Required | Option for | Notes  
+------------------------ | ------------------- | -------- | ---------- | ------------------------  
+`lightbulbGet`           | "Q4"                | yes*     | "lightbulb" | Lightbulb Get - Qn, Mn or Vn.n  
+`lightbulbSetOn`         | "V2.0"              | yes*     | "lightbulb" | Lightbulb Set On - Mn or Vn.n
+`lightbulbSetOff`        | "V2.1"              | yes*     | "lightbulb" | Lightbulb Set Off - Mn or Vn.n
+`lightbulbSetBrightness` | "VW20"              | yes*     | "lightbulb" | Lightbulb Set Brightness - AMn or VWn
+`lightbulbGetBrightness` | "VW22"              | yes*     | "lightbulb" | Lightbulb Get Brightness - AMn or VWn
+
+```json
+{
+    "name": "Item-5",
+    "type": "lightbulb",
+    "lightbulbGet": "Q4",
+    "lightbulbSetOn": "V2.0",
+    "lightbulbSetOff": "V2.1",
+    "lightbulbSetBrightness": "VW20",
+    "lightbulbGetBrightness": "VW22"
+}
+```  
 
 ## Example Configuration ##  
 
@@ -95,6 +133,15 @@ Name                     | Value               | Required | Option for | Notes
                     "switchGet": "M1",
                     "switchSetOn": "V1.6",
                     "switchSetOff": "V1.7"
+                },
+                {
+                    "name": "Item-5",
+                    "type": "lightbulb",
+                    "lightbulbGet": "Q4",
+                    "lightbulbSetOn": "V2.0",
+                    "lightbulbSetOff": "V2.1",
+                    "lightbulbSetBrightness": "VW20",
+                    "lightbulbGetBrightness": "VW22"
                 }
             ]
         }
