@@ -20,11 +20,25 @@ __Example configuration:__
 - [FeatherS2](https://feathers2.io/)
 - [MKR ETH Shield](https://store.arduino.cc/arduino-mkr-eth-shield)  
 - my PCB  
+
+__Infos:__  
+  
+- The connection on the underside of the MKR ETH Shield from the ETH_INT pad to pin 3 must be made by yourself! Without it, the Ethernet connection will not work!  
+- The mac address is the ethernet mac address from the ESP32-S2 chip and not that from the sticker on the shield.  
+- HomeKit configuration code is 111-22-333.  
+- In the serial connection you can see the HomeKit configuration QR code. And lots of other useful information and error messages.
+
+__Future options and ideas:__  
+
+- modify the PCB to add a 24V input and DIN rail support `@acresp`
+- access to bridge.cfg "over the air" to add/remove accessory without removing the SD card `@acresp`
+- Alexa support.
   
 __Type of Accessory:__
 
-- [Switch](#switch-configuration)
-- [Lightbulb](#lightbulb-configuration)
+- [Switch](#switch-configuration)  
+- [Lightbulb](#lightbulb-configuration)  
+- [Blind](#blind-configuration)  
 
 __Flash:__  
 
@@ -47,11 +61,11 @@ Name                     | Value               | Required | Notes
   
 ## Main Item Configuration ##  
   
-Name                     | Value               | Required | Option for | Notes  
------------------------- | ------------------- | -------- | ---------- | ------------------------  
-`name`                   | (custom)            | yes      | all        | Name of accessory that will appear in homekit app.
-`type`                   | "switch" or ...     | yes      | all        | Type of Accessory or Sensor
-`pushButton`             | 0 or 1              | no       | all        | If e.g. the network input in the LOGO! a hardware button on the LOGO! simulated, default is: 1.  
+Name                     | Value               | Required | Option for  | Notes  
+------------------------ | ------------------- | -------- | ----------- | ------------------------  
+`name`                   | (custom)            | yes      | all         | Name of accessory that will appear in homekit app.
+`type`                   | "switch" or ...     | yes      | all         | Type of Accessory or Sensor
+`pushButton`             | 0 or 1              | no       | all         | If e.g. the network input in the LOGO! a hardware button on the LOGO! simulated, default is: 1.  
   
 ## Switch Configuration ##  
   
@@ -93,6 +107,27 @@ Name                     | Value               | Required | Option for | Notes
 }
 ```  
 
+## Blind Configuration ##
+  
+Name                     | Value               | Required | Option for | Notes
+------------------------ | ------------------- | -------- | ---------- | ------------------------
+`blindSetPos`            | "VW26"              | yes*     | "blind"    | Blind Set Pos - AMn or VWn
+`blindGetPos`            | "VW28"              | yes*     | "blind"    | Blind Get Pos - AMn or VWn
+`blindSetState`          | "VW30"              | yes*     | "blind"    | Blind Get State - AMn or VWn
+`blindConvertValue`      | 0 or 1              | no       | "blind"    | Convert LOGO! values in to HomeKit values, default is: 1.  
+  
+```json
+{
+    "name": "Item-6",
+    "type": "blind",
+    "blindConvertValue": 1,
+    "blindSetTargetPos": "VW26",
+    "blindGetTargetPos": "VW26",
+    "blindGetPos": "VW28",
+    "blindGetState": "VW30"
+}
+```  
+  
 ## Example Configuration ##  
 
 `bridge.cfg` file on SD card. [JSON]
@@ -142,6 +177,15 @@ Name                     | Value               | Required | Option for | Notes
                     "lightbulbSetOff": "V2.1",
                     "lightbulbSetBrightness": "VW20",
                     "lightbulbGetBrightness": "VW22"
+                },
+                {
+                    "name": "Item-6",
+                    "type": "blind",
+                    "blindConvertValue": 1,
+                    "blindSetTargetPos": "VW26",
+                    "blindGetTargetPos": "VW26",
+                    "blindGetPos": "VW28",
+                    "blindGetState": "VW30"
                 }
             ]
         }
