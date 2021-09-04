@@ -39,7 +39,8 @@ __Type of Accessory:__
 - [Switch](#switch-configuration)  
 - [Lightbulb](#lightbulb-configuration)  
 - [Blind](#blind-configuration)  
-
+- [Window](#window-configuration)  
+  
 __Flash:__  
 
 `$ esptool.py -p [USB_device] -b 460800 --before=no_reset --after=no_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x1000 bootloader.bin 0x20000 ethernet_bridge.bin 0x8000 partition-table.bin 0x16000 ota_data_initial.bin`  
@@ -111,9 +112,10 @@ Name                     | Value               | Required | Option for | Notes
   
 Name                     | Value               | Required | Option for | Notes
 ------------------------ | ------------------- | -------- | ---------- | ------------------------
-`blindSetPos`            | "VW26"              | yes*     | "blind"    | Blind Set Pos - AMn or VWn
+`blindSetTargetPos`      | "VW26"              | yes*     | "blind"    | Blind Set Target Pos - AMn or VWn
+`blindGetTargetPos`      | "VW26"              | yes*     | "blind"    | Blind Get Target Pos - AMn or VWn
 `blindGetPos`            | "VW28"              | yes*     | "blind"    | Blind Get Pos - AMn or VWn
-`blindSetState`          | "VW30"              | yes*     | "blind"    | Blind Get State - AMn or VWn
+`blindGetState`          | "VW30"              | yes*     | "blind"    | Blind Get State - AMn or VWn
 `blindConvertValue`      | 0 or 1              | no       | "blind"    | Convert LOGO! values in to HomeKit values, default is: 1.  
   
 ```json
@@ -125,6 +127,28 @@ Name                     | Value               | Required | Option for | Notes
     "blindGetTargetPos": "VW26",
     "blindGetPos": "VW28",
     "blindGetState": "VW30"
+}
+```  
+
+## Window Configuration ##
+  
+Name                     | Value               | Required | Option for | Notes
+------------------------ | ------------------- | -------- | ---------- | ------------------------
+`windowSetTargetPos`     | "VW32"              | yes*     | "window"   | Window Set Target Pos - AMn or VWn
+`windowGetTargetPos`     | "VW32"              | yes*     | "window"   | Window Get Target Pos - AMn or VWn
+`windowGetPos`           | "VW34"              | yes*     | "window"   | Window Get Pos - AMn or VWn
+`windowSetState`         | "VW36"              | yes*     | "window"   | Window Get State - AMn or VWn
+`windowConvertValue`     | 0 or 1              | no       | "window"   | Convert LOGO! values in to HomeKit values, default is: 1.  
+  
+```json
+{
+    "name": "Item-6",
+    "type": "window",
+    "windowConvertValue": 1,
+    "windowSetTargetPos": "VW32",
+    "windowGetTargetPos": "VW32",
+    "windowGetPos": "VW34",
+    "windowGetState": "VW36"
 }
 ```  
   
@@ -186,6 +210,15 @@ Name                     | Value               | Required | Option for | Notes
                     "blindGetTargetPos": "VW26",
                     "blindGetPos": "VW28",
                     "blindGetState": "VW30"
+                },
+                {
+                    "name": "Item-7",
+                    "type": "window",
+                    "windowConvertValue": 1,
+                    "windowSetTargetPos": "VW32",
+                    "windowGetTargetPos": "VW32",
+                    "windowGetPos": "VW34",
+                    "windowGetState": "VW36"
                 }
             ]
         }
