@@ -42,6 +42,7 @@ __Type of Accessory:__
 - [Window](#window-configuration)  
 - [Garage Door](#garage-door-configuration)  
 - [Thermostat](#thermostat-configuration)
+- [Irrigation System](#irrigation-system-configuration)
   
 __Flash:__  
 
@@ -199,6 +200,28 @@ Name                     | Value              | Required | Option for | Notes
     "thermostatTempDisplayUnits": 0
 }
 ```
+
+## Irrigation System Configuration ##
+
+Name                     | Value               | Required | Option for | Notes
+------------------------ | ------------------- | -------- | ---------- | ------------------------
+`irrigationSystemGetActive`      | "V4.0"    | yes*     | "irrigationSystem" | Irrigation System Get Active - Mn or Vn.n
+`irrigationSystemSetActiveOn`    | "V4.1"    | yes*     | "irrigationSystem" | Irrigation System Set Active to On - Mn or Vn.n
+`irrigationSystemSetActiveOff`   | "V4.2"    | yes*     | "irrigationSystem" | Irrigation System Set Active to Off - Mn or Vn.n
+`irrigationSystemGetProgramMode` | "VW54"     | yes*     | "irrigationSystem" | Irrigation System Get Program Mode - AMn or VWn - (0 - No Program scheduled; 1 - Program scheduled; 2 - Program scheduled manual Mode)
+`irrigationSystemGetInUse`       | "V4.3"    | yes*     | "irrigationSystem" | Irrigation System Get In Use - Mn or Vn.n
+
+```json
+{
+    "name": "Item-10",
+    "type": "irrigationSystem",
+    "irrigationSystemGetActive": "V4.0",
+    "irrigationSystemSetActiveOn": "V4.1",
+    "irrigationSystemSetActiveOff": "V4.2",
+    "irrigationSystemGetProgramMode": "VW54",
+    "irrigationSystemGetInUse": "V4.3"
+}
+```
   
 ## Example Configuration ##  
 
@@ -286,6 +309,15 @@ Name                     | Value              | Required | Option for | Notes
                     "thermostatGetTargetTemp": "VW50",
                     "thermostatSetTargetTemp": "VW52",
                     "thermostatTempDisplayUnits": 0
+                },
+                {
+                    "name": "Item-10",
+                    "type": "irrigationSystem",
+                    "irrigationSystemGetActive": "V4.0",
+                    "irrigationSystemSetActiveOn": "V4.1",
+                    "irrigationSystemSetActiveOff": "V4.2",
+                    "irrigationSystemGetProgramMode": "VW54",
+                    "irrigationSystemGetInUse": "V4.3"
                 }
             ]
         }
