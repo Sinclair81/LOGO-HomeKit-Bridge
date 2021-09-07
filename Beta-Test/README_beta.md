@@ -41,6 +41,7 @@ __Type of Accessory:__
 - [Blind](#blind-configuration)  
 - [Window](#window-configuration)  
 - [Garage Door](#garage-door-configuration)  
+- [Thermostat](#thermostat-configuration)
   
 __Flash:__  
 
@@ -172,6 +173,32 @@ Name                       | Value               | Required | Option for   | Not
     "garagedoorObstruction": "V3.0"
 }
 ```
+
+## Thermostat Configuration ##
+
+Name                     | Value              | Required | Option for | Notes
+------------------------ | ------------------ | -------- | ---------- | ------------------------
+`thermostatGetHCState`       | "VW42"         | yes*     | "thermostat" | Thermostat Get Heating Cooling State - AMn or VWn
+`thermostatGetTargetHCState` | "VW44"         | yes*     | "thermostat" | Thermostat Get Target Heating Cooling State - AMn or VWn
+`thermostatSetTargetHCState` | "VW46"         | yes*     | "thermostat" | Thermostat Set Target Heating Cooling State - AMn or VWn
+`thermostatGetTemp`          | "VW48"         | yes*     | "thermostat" | Thermostat Get Temperature - AMn or VWn - Current Temperature in °C (0°C - 100°C!!, a value of 105 is 10.5°C)
+`thermostatGetTargetTemp`    | "VW50"         | yes*     | "thermostat" | Thermostat Get Target Temperature - AMn or VWn - Current Temperature in °C (10°C - 38°C!!, a value of 105 is 10.5°C)
+`thermostatSetTargetTemp`    | "VW52"         | yes*     | "thermostat" | Thermostat Set Target Temperature - AMn or VWn
+`thermostatTempDisplayUnits` | 0              | yes*     | "thermostat" | Temperature Display Units - Celsius = 0; Fahrenheit = 1;
+
+```json
+{
+    "name": "Item-9",
+    "type": "thermostat",
+    "thermostatGetHCState": "VW42",
+    "thermostatGetTargetHCState": "VW44",
+    "thermostatSetTargetHCState": "VW46",
+    "thermostatGetTemp": "VW48",
+    "thermostatGetTargetTemp": "VW50",
+    "thermostatSetTargetTemp": "VW52",
+    "thermostatTempDisplayUnits": 0
+}
+```
   
 ## Example Configuration ##  
 
@@ -248,6 +275,17 @@ Name                       | Value               | Required | Option for   | Not
                     "garagedoorGetTargetState": "VW40",
                     "garagedoorSetTargetState": "VW38",
                     "garagedoorObstruction": "V3.0"
+                },
+                {
+                    "name": "Item-9",
+                    "type": "thermostat",
+                    "thermostatGetHCState": "VW42",
+                    "thermostatGetTargetHCState": "VW44",
+                    "thermostatSetTargetHCState": "VW46",
+                    "thermostatGetTemp": "VW48",
+                    "thermostatGetTargetTemp": "VW50",
+                    "thermostatSetTargetTemp": "VW52",
+                    "thermostatTempDisplayUnits": 0
                 }
             ]
         }
