@@ -43,6 +43,7 @@ __Type of Accessory:__
 - [Garage Door](#garage-door-configuration)  
 - [Thermostat](#thermostat-configuration)
 - [Irrigation System](#irrigation-system-configuration)
+- [Valve](#valve-configuration)
   
 __Flash:__  
 
@@ -96,8 +97,8 @@ Name                     | Value               | Required | Option for | Notes
 `lightbulbGet`           | "Q4"                | yes*     | "lightbulb" | Lightbulb Get - Qn, Mn or Vn.n  
 `lightbulbSetOn`         | "V2.0"              | yes*     | "lightbulb" | Lightbulb Set On - Mn or Vn.n
 `lightbulbSetOff`        | "V2.1"              | yes*     | "lightbulb" | Lightbulb Set Off - Mn or Vn.n
-`lightbulbSetBrightness` | "VW20"              | yes*     | "lightbulb" | Lightbulb Set Brightness - AMn or VWn
-`lightbulbGetBrightness` | "VW22"              | yes*     | "lightbulb" | Lightbulb Get Brightness - AMn or VWn
+`lightbulbSetBrightness` | "VW20"              | no*      | "lightbulb" | Lightbulb Set Brightness - AMn or VWn
+`lightbulbGetBrightness` | "VW22"              | no*      | "lightbulb" | Lightbulb Get Brightness - AMn or VWn
 
 ```json
 {
@@ -222,6 +223,34 @@ Name                     | Value               | Required | Option for | Notes
     "irrigationSystemGetInUse": "V4.3"
 }
 ```
+
+## Valve Configuration ##
+
+Name                        | Value       | Required | Option for | Notes
+--------------------------- | ----------- | -------- | ---------- | ------------------------
+`valveGetActive`            | "V5.0"      | yes*     | "valve" | Valve Get Active - Mn or Vn.n
+`valveSetActiveOn`          | "V5.1"      | yes*     | "valve" | Valve Set Active to On - Mn or Vn.n
+`valveSetActiveOff`         | "V5.2"      | yes*     | "valve" | Valve Set Active to Off - Mn or Vn.n
+`valveGetInUse`             | "V5.3"      | yes*     | "valve" | Valve Get In Use - Mn or Vn.n
+`valveType`                 | 0           | yes*     | "valve" | Valve Type - Generic Valve = 0, Irrigation = 1, Shower Head = 2, Water Faucet = 3,
+`valveSetDuration`          | "VW56"      | no*      | "valve" | Valve Set Duration - AMn or VWn - Value in Seconds (0 - 3600 sec)
+`valveGetDuration`          | "VW56"      | no*      | "valve" | Valve Get Duration - AMn or VWn - Value in Seconds (0 - 3600 sec)
+`valveGetRemainingDuration` | "VW58"      | no*      | "valve" | Valve Get Remaining Duration - AMn or VWn - Value in Seconds (0 - 3600 sec)
+
+```json
+{
+    "name": "Item-11",
+    "type": "valve",
+    "valveGetActive": "V5.0",
+    "valveSetActiveOn": "V5.1",
+    "valveSetActiveOff": "V5.2",
+    "valveGetInUse": "V5.3",
+    "valveType": 1,
+    "valveSetDuration": "VW56",
+    "valveGetDuration": "VW56",
+    "valveGetRemainingDuration": "VW58"
+}
+```
   
 ## Example Configuration ##  
 
@@ -318,6 +347,18 @@ Name                     | Value               | Required | Option for | Notes
                     "irrigationSystemSetActiveOff": "V4.2",
                     "irrigationSystemGetProgramMode": "VW54",
                     "irrigationSystemGetInUse": "V4.3"
+                },
+                {
+                    "name": "Item-11",
+                    "type": "valve",
+                    "valveGetActive": "V5.0",
+                    "valveSetActiveOn": "V5.1",
+                    "valveSetActiveOff": "V5.2",
+                    "valveGetInUse": "V5.3",
+                    "valveType": 1,
+                    "valveSetDuration": "VW56",
+                    "valveGetDuration": "VW56",
+                    "valveGetRemainingDuration": "VW58"
                 }
             ]
         }
