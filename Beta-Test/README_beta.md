@@ -44,6 +44,8 @@ __Type of Accessory:__
 - [Thermostat](#thermostat-configuration)
 - [Irrigation System](#irrigation-system-configuration)
 - [Valve](#valve-configuration)
+- [Fan](#fan-configuration)
+- [Filter Maintenance](#filter-maintenance-configuration)
   
 __Flash:__  
 
@@ -251,6 +253,54 @@ Name                        | Value       | Required | Option for | Notes
     "valveGetRemainingDuration": "VW58"
 }
 ```
+
+## Fan Configuration ##
+
+Name                     | Value             | Required | Option for | Notes
+------------------------ | ----------------- | -------- | ---------- | ------------------------
+`fanGetActive`               | "V6.0"        | yes*     | "fan"      | Fan Get Active - Mn or Vn.n
+`fanSetActiveOn`             | "V6.1"        | yes*     | "fan"      | Fan Set Active to On - Mn or Vn.n
+`fanSetActiveOff`            | "V6.2"        | yes*     | "fan"      | Fan Set Active to Off - Mn or Vn.n
+`fanGetRotationDirection`    | "V6.3"        | no*      | "fan"      | Fan Get Rotation Direction - Mn or Vn.n
+`fanSetRotationDirectionCW`  | "V6.4"        | no*      | "fan"      | Fan Set Rotation Direction to Clockwise - Mn or Vn.n
+`fanSetRotationDirectionCCW` | "V6.5"        | no*      | "fan"      | Fan Set Rotation Direction to Counter Clockwise - Mn or Vn.n
+`fanGetRotationSpeed`        | "VW60"        | no*      | "fan"      | Fan Get Rotation Speed - AMn or VWn
+`fanSetRotationSpeed`        | "VW62"        | no*      | "fan"      | Fan Set Rotation Speed - AMn or VWn
+
+```json
+{
+    "name": "Item-12",
+    "type": "fan",
+    "fanGetActive": "V6.0",
+    "fanSetActiveOn": "V6.1",
+    "fanSetActiveOff": "V6.2",
+    "fanGetRotationDirection": "V6.3",
+    "fanSetRotationDirectionCW": "V6.4",
+    "fanSetRotationDirectionCCW": "V6.5",
+    "fanGetRotationSpeed": "VW60",
+    "fanSetRotationSpeed": "VW62"
+}
+```
+
+## Filter Maintenance Configuration ##
+
+__:construction: In HomeKit Accessory Protocol Specification available but currently not supported by the Home-App!__
+
+Name                     | Value             | Required | Option for | Notes
+------------------------ | ----------------- | -------- | ---------- | ------------------------
+`filterChangeIndication`      | "V7.0"       | yes*     | "filterMaintenance" | Filter Maintenance Get Filter Change Indication - Mn or Vn.n
+`filterLifeLevel`             | "VW64"       | no*      | "filterMaintenance" | Filter Maintenance Get Filter Life Level - AMn or VWn
+`filterResetFilterIndication` | "V7.1"       | no*      | "filterMaintenance" | Filter Maintenance Set Reset Filter Indication - Mn or Vn.n
+
+```json
+{
+    "name": "Item-13",
+    "type": "filterMaintenance",
+    "filterChangeIndication": "V7.0",
+    "filterLifeLevel": "VW64",
+    "filterResetFilterIndication": "V7.1"
+}
+```
   
 ## Example Configuration ##  
 
@@ -359,6 +409,25 @@ Name                        | Value       | Required | Option for | Notes
                     "valveSetDuration": "VW56",
                     "valveGetDuration": "VW56",
                     "valveGetRemainingDuration": "VW58"
+                },
+                {
+                    "name": "Item-12",
+                    "type": "fan",
+                    "fanGetActive": "V6.0",
+                    "fanSetActiveOn": "V6.1",
+                    "fanSetActiveOff": "V6.2",
+                    "fanGetRotationDirection": "V6.3",
+                    "fanSetRotationDirectionCW": "V6.4",
+                    "fanSetRotationDirectionCCW": "V6.5",
+                    "fanGetRotationSpeed": "VW60",
+                    "fanSetRotationSpeed": "VW62"
+                },
+                {
+                    "name": "Item-13",
+                    "type": "filterMaintenance",
+                    "filterChangeIndication": "V7.0",
+                    "filterLifeLevel": "VW64",
+                    "filterResetFilterIndication": "V7.1"
                 }
             ]
         }
