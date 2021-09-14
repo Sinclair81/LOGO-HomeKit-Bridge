@@ -46,6 +46,18 @@ __Type of Accessory:__
 - [Valve](#valve-configuration)
 - [Fan](#fan-configuration)
 - [Filter Maintenance](#filter-maintenance-configuration)
+
+__Type of Sensor Accessory:__
+
+- [Light Sensor](#light-sensor-configuration)
+- [Motion Sensor](#motion-sensor-configuration)
+- [Contact Sensor](#contact-sensor-configuration)
+- [Smoke Sensor](#smoke-sensor-configuration)
+- [Temperature Sensor](#temperature-sensor-configuration)
+- [Humidity Sensor](#humidity-sensor-configuration)
+- [Carbon Dioxide Sensor](#carbon-dioxide-sensor-configuration)
+- [Air Quality Sensor](#air-quality-sensor-configuration)
+- [Leak Sensor](#leak-sensor-configuration)
   
 __Flash:__  
 
@@ -185,8 +197,8 @@ Name                     | Value              | Required | Option for | Notes
 `thermostatGetHCState`       | "VW42"         | yes*     | "thermostat" | Thermostat Get Heating Cooling State - AMn or VWn
 `thermostatGetTargetHCState` | "VW44"         | yes*     | "thermostat" | Thermostat Get Target Heating Cooling State - AMn or VWn
 `thermostatSetTargetHCState` | "VW46"         | yes*     | "thermostat" | Thermostat Set Target Heating Cooling State - AMn or VWn
-`thermostatGetTemp`          | "VW48"         | yes*     | "thermostat" | Thermostat Get Temperature - AMn or VWn - Current Temperature in °C (0°C - 100°C!!, a value of 105 is 10.5°C)
-`thermostatGetTargetTemp`    | "VW50"         | yes*     | "thermostat" | Thermostat Get Target Temperature - AMn or VWn - Current Temperature in °C (10°C - 38°C!!, a value of 105 is 10.5°C)
+`thermostatGetTemp`          | "VW48"         | yes*     | "thermostat" | Thermostat Get Temperature - AMn or VWn - Current Temperature in °C (0°C - 100°C!!)
+`thermostatGetTargetTemp`    | "VW50"         | yes*     | "thermostat" | Thermostat Get Target Temperature - AMn or VWn - Current Temperature in °C (10°C - 38°C!!)
 `thermostatSetTargetTemp`    | "VW52"         | yes*     | "thermostat" | Thermostat Set Target Temperature - AMn or VWn
 `thermostatTempDisplayUnits` | 0              | yes*     | "thermostat" | Temperature Display Units - Celsius = 0; Fahrenheit = 1;
 
@@ -299,6 +311,151 @@ Name                     | Value             | Required | Option for | Notes
     "filterChangeIndication": "V7.0",
     "filterLifeLevel": "VW64",
     "filterResetFilterIndication": "V7.1"
+}
+```
+
+## Light Sensor Configuration ##
+
+- do not work !!!!
+
+Name                | Value      | Required | Option for | Notes
+------------------- | ---------- | -------- | ---------- | ------------------------
+`light`             | "VW66"     | yes*     | "lightSensor" | Light Sensor for Current Ambient Light Level in Lux
+
+```json
+{
+    "name": "Sensor-1",
+    "type": "lightSensor",
+    "light": "VW66"
+}
+```
+
+## Motion Sensor Accessory Configuration ##
+
+Name             | Value               | Required | Option for | Notes
+---------------- | ------------------- | -------- | ---------- | ------------------------
+`motion`         | "V8.0"              | yes*     | "motionSensor"        | Motion Sensor
+
+```json
+{
+    "name": "Sensor-2",
+    "type": "motionSensor",
+    "motion": "V8.0"
+}
+```
+
+## Contact Sensor Configuration ##
+
+Name             | Value               | Required | Option for | Notes
+---------------- | ------------------- | -------- | ---------- | ------------------------
+`contact`        | "V8.1"              | yes*     | "contactSensor"       | Contact Sensor
+
+```json
+{
+    "name": "Sensor-3",
+    "type": "contactSensor",
+    "contact": "V8.1"
+}
+```
+
+## Smoke Sensor Configuration ##
+
+Name             | Value               | Required | Option for | Notes
+---------------- | ------------------- | -------- | ---------- | ------------------------
+`smoke`          | "V8.2"              | yes*     | "smokeSensor"         | Smoke Sensor
+
+```json
+{
+    "name": "Sensor-4",
+    "type": "smokeSensor",
+    "smoke": "V8.2"
+}
+```
+
+## Temperature Sensor Configuration ##
+
+Name                     | Value               | Required | Option for | Notes
+------------------------ | ------------------- | -------- | ---------- | ------------------------
+`temperature`            | "VW68"              | yes*     | "temperatureSensor"   | Temperature Sensor for Current Temperature in °C (0°C - 100°C!!)
+`convertValue`           | 0 or 1              | no*      | "temperatureSensor"   | Convert Int in Float, default is: 0. (235 / 10 == 23.5°C)  
+
+```json
+{
+    "name": "Sensor-5",
+    "type": "temperatureSensor",
+    "convertValue": 1,
+    "temperature": "VW68"
+}
+```
+
+## Humidity Sensor Configuration ##
+
+Name                     | Value               | Required | Option for | Notes
+------------------------ | ------------------- | -------- | ---------- | ------------------------
+`humidity`               | "VW70"              | yes*     | "humiditySensor"      | Humidity Sensor for Current Relative Humidity in %
+`convertValue`           | 0 or 1              | no*      | "humiditySensor"      | Convert Int in Float, default is: 0.   (456 / 10 == 45.6%rH => 46%rH in Home App)
+
+```json
+{
+    "name": "Sensor-6",
+    "type": "humiditySensor",
+    "convertValue": 1,
+    "humidity": "VW70"
+}
+```
+
+## Carbon Dioxide Sensor Configuration ##
+
+Name                     | Value               | Required | Option for | Notes
+------------------------ | ------------------- | -------- | ---------- | ------------------------
+`carbonDioxide`          | "V9.0"              | yes*     | "carbonDioxideSensor" | Carbon Dioxide
+`carbonDioxideLevel`     | "VW72"              | no*      | "carbonDioxideSensor" | Carbon Dioxide Level in ppm
+`carbonDioxidePeakLevel` | "VW74"              | no*      | "carbonDioxideSensor" | Carbon Dioxide Peak Level in ppm
+
+```json
+{
+    "name": "Sensor-7",
+    "type": "carbonDioxideSensor",
+    "carbonDioxide": "V9.0",
+    "carbonDioxideLevel": "VW72",
+    "carbonDioxidePeakLevel": "VW74"
+}
+```
+
+## Air Quality Sensor Configuration ##
+
+Name                     | Value               | Required | Option for | Notes
+------------------------ | ------------------- | -------- | ---------- | ------------------------
+`airQuality`             | "VW76"              | yes*     | "airQualitySensor"    | Air Quality (0 - 5)
+
+- 0 - Unknown  
+- 1 - Excellent - CO2 < 800ppm (IDA 1)  
+- 2 - Good - CO2 = 800 - 1000ppm (IDA 2)  
+- 3 - Fair - CO2 = 1000 - 1400ppm (IDA 3)  
+- 4 - Inferior - CO2 = 1400 - 1800ppm (IDA 4)  
+- 5 - Poor - CO2 > 1800ppm  
+
+```json
+{
+    "name": "Sensor-8",
+    "type": "airQualitySensor",
+    "airQuality": "VW76"
+}
+```
+
+## Leak Sensor Configuration ##
+
+Name             | Value               | Required | Option for | Notes
+---------------- | ------------------- | -------- | ---------- | ------------------------
+`leak`           | "V9.1"              | yes*     | "leakSensor"  | Leak Sensor
+`waterLevel`     | "VW78"              | no*      | "leakSensor"  | Water Level in %
+
+```json
+{
+    "name": "Sensor-9",
+    "type": "leakSensor",
+    "leak": "V9.1",
+    "waterLevel": "VW78"
 }
 ```
   
@@ -428,6 +585,55 @@ Name                     | Value             | Required | Option for | Notes
                     "filterChangeIndication": "V7.0",
                     "filterLifeLevel": "VW64",
                     "filterResetFilterIndication": "V7.1"
+                },
+                {
+                    "name": "Sensor-1",
+                    "type": "lightSensor",
+                    "light": "VW66"
+                },
+                {
+                    "name": "Sensor-2",
+                    "type": "motionSensor",
+                    "motion": "V8.0"
+                },
+                {
+                    "name": "Sensor-3",
+                    "type": "contactSensor",
+                    "contact": "V8.1"
+                },
+                {
+                    "name": "Sensor-4",
+                    "type": "smokeSensor",
+                    "smoke": "V8.2"
+                },
+                {
+                    "name": "Sensor-5",
+                    "type": "temperatureSensor",
+                    "convertValue": 1,
+                    "temperature": "VW68"
+                },
+                {
+                    "name": "Sensor-6",
+                    "type": "humiditySensor",
+                    "humidity": "VW70"
+                },
+                {
+                    "name": "Sensor-7",
+                    "type": "carbonDioxideSensor",
+                    "carbonDioxide": "V9.0",
+                    "carbonDioxideLevel": "VW72",
+                    "carbonDioxidePeakLevel": "VW74"
+                },
+                {
+                    "name": "Sensor-8",
+                    "type": "airQualitySensor",
+                    "airQuality": "VW76"
+                },
+                {
+                    "name": "Sensor-9",
+                    "type": "leakSensor",
+                    "leak": "V9.1",
+                    "waterLevel": "VW78"
                 }
             ]
         }
