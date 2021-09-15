@@ -200,7 +200,8 @@ Name                     | Value              | Required | Option for | Notes
 `thermostatGetTemp`          | "VW48"         | yes*     | "thermostat" | Thermostat Get Temperature - AMn or VWn - Current Temperature in °C (0°C - 100°C!!)
 `thermostatGetTargetTemp`    | "VW50"         | yes*     | "thermostat" | Thermostat Get Target Temperature - AMn or VWn - Current Temperature in °C (10°C - 38°C!!)
 `thermostatSetTargetTemp`    | "VW52"         | yes*     | "thermostat" | Thermostat Set Target Temperature - AMn or VWn
-`thermostatTempDisplayUnits` | 0              | yes*     | "thermostat" | Temperature Display Units - Celsius = 0; Fahrenheit = 1;
+`thermostatTempDisplayUnits` | 0 or 1         | yes*     | "thermostat" | Temperature Display Units - Celsius = 0; Fahrenheit = 1;
+`thermostatConvertValue`     | 0 or 1         | no*      | "thermostat" | Convert Int in Float, default is: 0. (235 / 10 == 23.5°C)  
 
 ```json
 {
@@ -212,7 +213,8 @@ Name                     | Value              | Required | Option for | Notes
     "thermostatGetTemp": "VW48",
     "thermostatGetTargetTemp": "VW50",
     "thermostatSetTargetTemp": "VW52",
-    "thermostatTempDisplayUnits": 0
+    "thermostatTempDisplayUnits": 0,
+    "thermostatConvertValue": 1
 }
 ```
 
