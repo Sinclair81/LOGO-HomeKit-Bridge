@@ -27,6 +27,7 @@ __Example configuration:__
 
 __Infos:__  
   
+- Limits: 10 LOGOs each with 30 Accessories and 10 Sensors
 - The connection on the underside of the MKR ETH Shield from the ETH_INT pad to pin 3 must be made by yourself! Without it, the Ethernet connection will not work!  
 - The mac address is the ethernet mac address from the ESP32-S2 chip and not that from the sticker on the shield.  
 - In the serial connection you can see the HomeKit configuration QR code. And lots of other useful information and error messages.  
