@@ -333,8 +333,6 @@ Name                     | Value             | Required | Option for | Notes
 
 ## Light Sensor Configuration ##
 
-- do not work !!!!
-
 Name                | Value      | Required | Option for | Notes
 ------------------- | ---------- | -------- | ---------- | ------------------------
 `light`             | "VW66"     | yes*     | "lightSensor" | Light Sensor for Current Ambient Light Level in Lux
