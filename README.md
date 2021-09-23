@@ -14,7 +14,7 @@ __Setup ID: `LHB1`__
 
 __Requires components:__
 
-- ESP32-S2 board  
+- ESP32-S2 board (with 16MB Flash & 8MB PSRAM)  
 - Ethernet interface with WIZnet W5500  
 - SD card adapter  
 - Mac or PC with EspTool installed
@@ -77,7 +77,7 @@ __Type of Sensor Accessory:__
   
 __Flash:__  
 
-`$ esptool.py -p [USB_device] -b 460800 --before=no_reset --after=no_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x1000 bootloader.bin 0x20000 ethernet_bridge.bin 0x8000 partition-table.bin 0x16000 ota_data_initial.bin`  
+`$ esptool.py -p [USB_device] -b 460800 --before no_reset --after no_reset --chip esp32s2  write_flash --flash_mode dio --flash_size detect --flash_freq 80m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x16000 build/ota_data_initial.bin 0x20000 build/ethernet_bridge.bin`  
   
 ## LOGO-HomeKit-Bridge Main Configuration Parameters ##  
   
