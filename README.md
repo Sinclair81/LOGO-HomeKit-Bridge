@@ -35,9 +35,7 @@ __Infos:__
 
 __TODO:__
 
-- Test with more than one LOGO.
 - Modify the PCB to add a 24V input and DIN rail support.
-- Add access to bridge.cfg "over the air" to add/remove accessory without removing the SD card.
 - Add Alexa support.
 
 __Buttons & LEDs:__
@@ -49,6 +47,14 @@ __Buttons & LEDs:__
 - LED 2 (orange) - on at start up to indicate SD card formating on mount fail  
 - LED 3 (red) - Error  
 - LED 4 (blue) - on at start up
+
+__Webserver:__  
+
+- Is activated by specifying a port number in the config. `e.g. 8080`
+- Information about the current configuration on: `"/"`
+- Config upload on: `"/config"`
+- The file name on the PC does not matter, only the content is uploaded.
+- The last old config on the SD card is not overwritten, just renamed to `"old_n.cfg"`.
   
 __Type of Accessory:__
 
@@ -83,7 +89,8 @@ __Flash:__
   
 Name                     | Value               | Required | Notes  
 ------------------------ | ------------------- | -------- | ------------------------  
-`port`                   | 502                 | yes      | Must be set to the Modbus Port of your LOGO! PLCs.  
+`http_port`              | 8080                | no       | Info & Update Webserver Port (greater than 0 and not 80).  
+`mb_port`                | 502                 | yes      | Must be set to the Modbus Port of your LOGO! PLCs.  
 `plcs`                   | [...]               | yes      | A array of all your LOGO! PLCs.  
   
 ## PLC Configuration ##  
@@ -481,7 +488,8 @@ Name             | Value               | Required | Option for | Notes
   
 ```json
 {
-    "port": 502,
+    "http_port": 8080,
+    "mb_port": 502,
     "plcs": [
         {
             "name": "Logo 1",
