@@ -27,6 +27,7 @@ __Example configuration:__
 
 __Infos:__  
   
+- Reset bridge after pairing, to announce all Accessories!
 - Limits: 10 LOGOs each with 30 Accessories and 10 Sensors
 - HomeKit name length limit is 15 characters!
 - The connection on the underside of the MKR ETH Shield from the ETH_INT pad to pin 3 must be made by yourself! Without it, the Ethernet connection will not work!  
