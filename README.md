@@ -155,7 +155,7 @@ Name                     | Value               | Required | Option for | Notes
 Name                     | Value               | Required | Option for | Notes
 ------------------------ | ------------------- | -------- | ---------- | ------------------------
 `blindSetTargetPos`      | "VW26"              | yes*     | "blind"    | Blind Set Target Pos - AMn or VWn
-`blindGetTargetPos`      | "VW26"              | yes*     | "blind"    | Blind Get Target Pos - AMn or VWn
+`blindGetTargetPos`      | "VW28"              | yes*     | "blind"    | Blind Get Target Pos - AMn or VWn
 `blindGetPos`            | "VW28"              | yes*     | "blind"    | Blind Get Pos - AMn or VWn
 `blindGetState`          | "VW30"              | yes*     | "blind"    | Blind Get State - AMn or VWn
 `blindConvertValue`      | 0 or 1              | no*      | "blind"    | Convert LOGO! values in to HomeKit values, default is: 1.  
@@ -166,7 +166,7 @@ Name                     | Value               | Required | Option for | Notes
     "type": "blind",
     "blindConvertValue": 1,
     "blindSetTargetPos": "VW26",
-    "blindGetTargetPos": "VW26",
+    "blindGetTargetPos": "VW28",
     "blindGetPos": "VW28",
     "blindGetState": "VW30"
 }
@@ -177,7 +177,7 @@ Name                     | Value               | Required | Option for | Notes
 Name                     | Value               | Required | Option for | Notes
 ------------------------ | ------------------- | -------- | ---------- | ------------------------
 `windowSetTargetPos`     | "VW32"              | yes*     | "window"   | Window Set Target Pos - AMn or VWn
-`windowGetTargetPos`     | "VW32"              | yes*     | "window"   | Window Get Target Pos - AMn or VWn
+`windowGetTargetPos`     | "VW34"              | yes*     | "window"   | Window Get Target Pos - AMn or VWn
 `windowGetPos`           | "VW34"              | yes*     | "window"   | Window Get Pos - AMn or VWn
 `windowSetState`         | "VW36"              | yes*     | "window"   | Window Get State - AMn or VWn
 `windowConvertValue`     | 0 or 1              | no*      | "window"   | Convert LOGO! values in to HomeKit values, default is: 1.  
@@ -188,7 +188,7 @@ Name                     | Value               | Required | Option for | Notes
     "type": "window",
     "windowConvertValue": 1,
     "windowSetTargetPos": "VW32",
-    "windowGetTargetPos": "VW32",
+    "windowGetTargetPos": "VW34",
     "windowGetPos": "VW34",
     "windowGetState": "VW36"
 }
@@ -539,7 +539,7 @@ Name             | Value               | Required | Option for | Notes
                     "type": "blind",
                     "blindConvertValue": 1,
                     "blindSetTargetPos": "VW26",
-                    "blindGetTargetPos": "VW26",
+                    "blindGetTargetPos": "VW28",
                     "blindGetPos": "VW28",
                     "blindGetState": "VW30"
                 },
@@ -548,7 +548,7 @@ Name             | Value               | Required | Option for | Notes
                     "type": "window",
                     "windowConvertValue": 1,
                     "windowSetTargetPos": "VW32",
-                    "windowGetTargetPos": "VW32",
+                    "windowGetTargetPos": "VW34",
                     "windowGetPos": "VW34",
                     "windowGetState": "VW36"
                 },
