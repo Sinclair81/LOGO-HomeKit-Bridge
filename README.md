@@ -91,6 +91,8 @@ __Flash:__
 Name                     | Value               | Required | Notes  
 ------------------------ | ------------------- | -------- | ------------------------  
 `http_port`              | 8080                | no       | Info & Update Webserver Port (greater than 0 and not 80).  
+`update_interval`        | 5000                | no       | Update Interval (in MS) for all Accessories and Sensors, default is: 5000.  
+`debug_level`            | 0                   | no       | Debug Level for Serial Output. 0 - Error, 1 - Warning, 2 - Info, default is: 0.  
 `mb_port`                | 502                 | yes      | Must be set to the Modbus Port of your LOGO! PLCs.  
 `plcs`                   | [...]               | yes      | A array of all your LOGO! PLCs.  
   
@@ -490,6 +492,8 @@ Name             | Value               | Required | Option for | Notes
 ```json
 {
     "http_port": 8080,
+    "update_interval": 1000,
+    "debug_level": 2,
     "mb_port": 502,
     "plcs": [
         {
