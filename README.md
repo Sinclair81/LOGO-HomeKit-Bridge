@@ -17,7 +17,7 @@ __Requires components:__
 - ESP32-S2 board (with 16MB Flash & 8MB PSRAM)  
 - Ethernet interface with WIZnet W5500  
 - SD card adapter  
-- Mac or PC with EspTool installed
+- Mac or PC with [EspTool installed](https://github.com/espressif/esptool#easy-installation)
 
 __Example configuration:__
 
